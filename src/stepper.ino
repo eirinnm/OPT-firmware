@@ -10,7 +10,7 @@
 #define BUTTON2 A4
 
 const byte seconds_per_rev = 12;
-const int full_steps_per_rev = 200;
+const int full_steps_per_rev = 400;
 int microstepping = 16; 
 int steps_per_second = microstepping * full_steps_per_rev / seconds_per_rev;
 unsigned long button1_debounce = 0;
@@ -66,7 +66,7 @@ void loop(){
       }
     }
   //poll the buttons
-  if(!digitalRead(BUTTON1) && millis()>button1_debounce+200){
+  if(!digitalRead(BUTTON1) && millis()>button1_debounce+500){
     button1_debounce=millis();
     if(!running){
       startRotation();
